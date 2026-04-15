@@ -370,6 +370,28 @@
         transform: none;
       }
 
+      .back-btn {
+        margin-top: 1rem;
+        padding: 0.7rem 2.2rem;
+        background: transparent;
+        border: 1px solid rgba(249, 168, 212, 0.45);
+        border-radius: 50px;
+        color: var(--pink-soft);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .back-btn:hover {
+        border-color: var(--pink-deep);
+        color: var(--white);
+        box-shadow: 0 0 24px rgba(236, 72, 153, 0.35);
+        transform: translateY(-2px);
+      }
+
       /* ─── LETTER SCREEN ─── */
       #letterScreen {
         padding: 1.5rem;
@@ -380,7 +402,7 @@
         position: relative;
         max-width: 680px;
         width: 100%;
-        margin: auto;
+        margin: 0 auto;
         background: linear-gradient(
           160deg,
           rgba(255, 255, 255, 0.06),
@@ -636,8 +658,9 @@
       #letterScreen {
         overflow-y: auto;
         height: 100vh;
-        padding-top: 5rem;
-        padding-bottom: 6rem;
+        padding-top: clamp(3rem, 6vh, 5rem);
+        padding-bottom: clamp(4rem, 8vh, 6rem);
+        justify-content: flex-start;
       }
       #letterScreen::-webkit-scrollbar {
         width: 4px;
@@ -853,17 +876,20 @@
         ✦ Open Our Letter ✦
       </button>
 
+      <button class="back-btn" onclick="goToFrontPage()">Back</button>
+
       <p
         class="subtitle-text mt-4"
         style="color: rgba(253, 250, 255, 0.2); font-size: 0.55rem"
       >
-        you can adjust the volume anytime inside
+        you can change the song anytime inside
       </p>
     </div>
 
     <!-- ══════════ SCREEN 3: LETTER ══════════ -->
     <div class="screen hidden" id="letterScreen">
       <div class="letter-container">
+        <button class="back-btn" onclick="goToFrontPage()">Back</button>
         <div class="corner-deco tl">❧</div>
         <div class="corner-deco tr">❧</div>
         <div class="corner-deco bl">❧</div>
@@ -875,7 +901,7 @@
           </p>
           <h1
             class="display-font glow-text"
-            style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1"
+            style="font-size: clamp(2.2rem, 5.2vw, 3.6rem); line-height: 1.1"
           >
             Happy 9th Monthsary
           </h1>
@@ -1057,6 +1083,31 @@
         document.getElementById("card1").classList.toggle("active", num === 1);
         document.getElementById("card2").classList.toggle("active", num === 2);
         document.getElementById("openLetterBtn").disabled = false;
+      }
+
+      function stopAllSongs() {
+        Object.values(songs).forEach((song) => {
+          song.el.pause();
+          song.el.currentTime = 0;
+        });
+        isPlaying = false;
+        updatePlayerUI();
+      }
+
+      function goToFrontPage() {
+        document.getElementById("songScreen").classList.add("hidden");
+        document.getElementById("letterScreen").classList.add("hidden");
+        document.getElementById("lockScreen").classList.remove("hidden");
+        document.getElementById("musicPlayer").classList.add("hidden");
+        document.getElementById("lockWrap").classList.remove("unlocked");
+
+        selectedSong = 0;
+        document.getElementById("openLetterBtn").disabled = true;
+        document.getElementById("card1").classList.remove("active");
+        document.getElementById("card2").classList.remove("active");
+
+        stopAllSongs();
+        updateDots(0);
       }
 
       // ── open letter
