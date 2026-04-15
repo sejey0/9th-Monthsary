@@ -486,6 +486,9 @@
         box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
         transition: all 0.3s;
       }
+      .music-player.hidden {
+        display: none;
+      }
       .music-player:hover {
         border-color: rgba(249, 168, 212, 0.5);
       }
@@ -1071,6 +1074,7 @@
       // ── lock
       function unlockScreen() {
         const lock = document.getElementById("lockWrap");
+        document.getElementById("musicPlayer").classList.add("hidden");
         lock.classList.add("unlocked");
         setTimeout(() => {
           transitionTo("lockScreen", "songScreen", 1);
@@ -1121,6 +1125,9 @@
 
       // ── screen transition
       function transitionTo(fromId, toId, dotIndex) {
+        if (toId !== "letterScreen") {
+          document.getElementById("musicPlayer").classList.add("hidden");
+        }
         document.getElementById(fromId).classList.add("hidden");
         setTimeout(() => {
           document.getElementById(toId).classList.remove("hidden");
