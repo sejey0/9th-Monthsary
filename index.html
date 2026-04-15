@@ -35,6 +35,8 @@
         --purple-dark: #581c87;
         --black: #0a0a0f;
         --white: #fdfaff;
+        --playful-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23f9a8d4' d='M16 28s-9-5.8-12.1-11.2C1.4 12 3.4 7.7 7.5 6.6c2.6-.7 5.1.3 6.8 2.2l1.7 1.9 1.7-1.9c1.7-1.9 4.2-2.9 6.8-2.2 4.1 1.1 6.1 5.4 3.6 10.2C25 22.2 16 28 16 28z'/%3E%3C/svg%3E")
+          16 16;
       }
 
       * {
@@ -49,7 +51,7 @@
         overflow: hidden;
         height: 100vh;
         width: 100vw;
-        cursor: default;
+        cursor: var(--playful-cursor), auto;
       }
 
       /* ─── SHARED ANIMATED BG ─── */
@@ -149,7 +151,7 @@
 
       .lock-wrap {
         position: relative;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         display: inline-block;
         filter: drop-shadow(0 0 30px #ec489977);
         transition: filter 0.3s;
@@ -299,7 +301,7 @@
         border-radius: 20px;
         padding: 2rem 1.5rem;
         text-align: center;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         backdrop-filter: none;
         transition: all 0.35s ease;
         overflow: hidden;
@@ -367,7 +369,7 @@
         letter-spacing: 0.15em;
         font-size: 0.8rem;
         text-transform: uppercase;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
         transition: all 0.3s;
       }
@@ -393,7 +395,7 @@
         letter-spacing: 0.12em;
         font-size: 0.7rem;
         text-transform: uppercase;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         transition: all 0.3s;
       }
       .back-btn:hover {
@@ -483,7 +485,7 @@
         object-fit: cover;
         border-radius: 8px;
         display: block;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
       }
 
       .image-modal {
@@ -529,7 +531,7 @@
         border: 1px solid rgba(249, 168, 212, 0.45);
         background: rgba(10, 10, 15, 0.85);
         color: var(--pink-soft);
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -657,7 +659,6 @@
       .player-info {
         display: flex;
         flex-direction: column;
-        max-width: 100px;
       }
       .now-playing {
         font-size: 0.5rem;
@@ -666,6 +667,7 @@
         text-transform: uppercase;
       }
       .song-name {
+        cursor: var(--playful-cursor), pointer;
         font-size: 0.65rem;
         color: var(--white);
         font-weight: 500;
@@ -677,7 +679,7 @@
       .player-btn {
         background: none;
         border: none;
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         color: var(--pink-soft);
         font-size: 0.85rem;
         width: 24px;
@@ -720,7 +722,7 @@
         );
         border: 1px solid rgba(249, 168, 212, 0.25);
         color: var(--pink-soft);
-        cursor: pointer;
+        cursor: var(--playful-cursor), pointer;
         transition: all 0.2s;
         font-family: "Montserrat", sans-serif;
         white-space: nowrap;
