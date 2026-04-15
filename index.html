@@ -12,13 +12,13 @@
 
     <!-- 🎵 ADD YOUR OWN SONGS HERE -->
     <!-- Replace the src values with your actual audio file paths or URLs -->
-    <audio id="song1" loop>
+    <audio id="song1">
       <source
         src="audio/Planeta by Matt Wilson (Lyrics) [QOoQlhUrCtE].mp3"
         type="audio/mpeg"
       />
     </audio>
-    <audio id="song2" loop>
+    <audio id="song2">
       <source
         src="audio/Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3"
         type="audio/mpeg"
@@ -483,16 +483,16 @@
       /* ─── MUSIC PLAYER ─── */
       .music-player {
         position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
         z-index: 100;
         background: rgba(10, 10, 15, 0.85);
         border: 1px solid rgba(249, 168, 212, 0.25);
-        border-radius: 60px;
-        padding: 0.6rem 1rem;
+        border-radius: 48px;
+        padding: 0.45rem 0.75rem;
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.5rem;
         backdrop-filter: blur(20px);
         box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
         transition: all 0.3s;
@@ -510,8 +510,8 @@
       }
 
       .music-disc {
-        width: 38px;
-        height: 38px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         background: conic-gradient(
           var(--pink-deep),
@@ -528,8 +528,8 @@
       .music-disc::after {
         content: "";
         position: absolute;
-        width: 12px;
-        height: 12px;
+        width: 9px;
+        height: 9px;
         background: var(--black);
         border-radius: 50%;
       }
@@ -545,16 +545,16 @@
       .player-info {
         display: flex;
         flex-direction: column;
-        max-width: 120px;
+        max-width: 100px;
       }
       .now-playing {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
         color: var(--pink-soft);
         letter-spacing: 0.1em;
         text-transform: uppercase;
       }
       .song-name {
-        font-size: 0.72rem;
+        font-size: 0.65rem;
         color: var(--white);
         font-weight: 500;
         white-space: nowrap;
@@ -567,9 +567,9 @@
         border: none;
         cursor: pointer;
         color: var(--pink-soft);
-        font-size: 1rem;
-        width: 28px;
-        height: 28px;
+        font-size: 0.85rem;
+        width: 24px;
+        height: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -587,19 +587,19 @@
         gap: 0.35rem;
       }
       .volume-icon {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: var(--pink-soft);
         opacity: 0.85;
       }
       .volume-slider {
-        width: 90px;
+        width: 70px;
         accent-color: var(--pink-soft);
       }
 
       .switch-btn {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
         letter-spacing: 0.05em;
-        padding: 0.25rem 0.6rem;
+        padding: 0.2rem 0.5rem;
         border-radius: 20px;
         background: linear-gradient(
           135deg,
