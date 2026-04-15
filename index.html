@@ -14,13 +14,13 @@
     <!-- Replace the src values with your actual audio file paths or URLs -->
     <audio id="song1" loop>
       <source
-        src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"
+        src="audio/Planeta by Matt Wilson (Lyrics) [QOoQlhUrCtE].mp3"
         type="audio/mpeg"
       />
     </audio>
     <audio id="song2" loop>
       <source
-        src="https://www.bensound.com/bensound-music/bensound-love.mp3"
+        src="audio/Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3"
         type="audio/mpeg"
       />
     </audio>
@@ -468,7 +468,8 @@
         border-color: rgba(249, 168, 212, 0.5);
       }
 
-      #lockScreen:not(.hidden) ~ .music-player {
+      #lockScreen:not(.hidden) ~ .music-player,
+      #songScreen:not(.hidden) ~ .music-player {
         display: none;
       }
 
@@ -542,6 +543,21 @@
       .player-btn:hover {
         background: rgba(236, 72, 153, 0.2);
         color: white;
+      }
+
+      .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .volume-icon {
+        font-size: 0.8rem;
+        color: var(--pink-soft);
+        opacity: 0.85;
+      }
+      .volume-slider {
+        width: 90px;
+        accent-color: var(--pink-soft);
       }
 
       .switch-btn {
@@ -792,28 +808,12 @@
 
     <!-- ══════════ SCREEN 2: SONG SELECTION ══════════ -->
     <div class="screen hidden" id="songScreen">
-      <p
-        class="subtitle-text mb-3"
-        style="letter-spacing: 0.3em; color: rgba(253, 250, 255, 0.4)"
-      >
-        before we open our letter
-      </p>
       <h2
         class="display-font glow-text mb-2"
         style="font-size: clamp(2rem, 6vw, 3.5rem)"
       >
         Choose a Song
       </h2>
-      <p
-        class="body-font mb-8"
-        style="
-          color: rgba(249, 168, 212, 0.6);
-          font-size: 0.9rem;
-          font-style: italic;
-        "
-      >
-        to serenade our memories
-      </p>
 
       <div
         class="song-cards-wrap"
@@ -830,18 +830,7 @@
             class="body-font"
             style="color: var(--white); font-size: 1.1rem; font-weight: 400"
           >
-            Song One
-          </p>
-          <p
-            style="
-              color: rgba(249, 168, 212, 0.5);
-              font-size: 0.65rem;
-              margin-top: 0.5rem;
-              letter-spacing: 0.1em;
-              text-transform: uppercase;
-            "
-          >
-            Our first chapter
+            Planeta by Matt Wilson
           </p>
         </div>
         <div class="song-card" id="card2" onclick="selectSong(2)">
@@ -850,18 +839,7 @@
             class="body-font"
             style="color: var(--white); font-size: 1.1rem; font-weight: 400"
           >
-            Song Two
-          </p>
-          <p
-            style="
-              color: rgba(249, 168, 212, 0.5);
-              font-size: 0.65rem;
-              margin-top: 0.5rem;
-              letter-spacing: 0.1em;
-              text-transform: uppercase;
-            "
-          >
-            Our second melody
+            Wilbert Ross - Dulo Ng Pahina
           </p>
         </div>
       </div>
@@ -879,7 +857,7 @@
         class="subtitle-text mt-4"
         style="color: rgba(253, 250, 255, 0.2); font-size: 0.55rem"
       >
-        you can change the song anytime inside
+        you can adjust the volume anytime inside
       </p>
     </div>
 
@@ -974,7 +952,9 @@
       <div class="music-disc" id="musicDisc"></div>
       <div class="player-info">
         <span class="now-playing">Now Playing</span>
-        <span class="song-name" id="currentSongName">Song One</span>
+        <span class="song-name" id="currentSongName"
+          >Planeta by Matt Wilson</span
+        >
       </div>
       <button
         class="player-btn"
@@ -987,6 +967,19 @@
       <button class="switch-btn" onclick="switchSong()" title="Switch song">
         ⇄ Switch
       </button>
+      <div class="volume-control">
+        <span class="volume-icon" aria-hidden="true">🔊</span>
+        <input
+          class="volume-slider"
+          id="volumeControl"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.7"
+          aria-label="Volume"
+        />
+      </div>
     </div>
 
     <!-- TOAST NOTIFICATION -->
@@ -1002,15 +995,31 @@
       const songs = {
         1: {
           el: document.getElementById("song1"),
-          name: "Song One",
+          name: "Planeta by Matt Wilson",
           icon: "🎵",
         },
         2: {
           el: document.getElementById("song2"),
-          name: "Song Two",
+          name: "Wilbert Ross - Dulo Ng Pahina",
           icon: "🎶",
         },
       };
+
+      const volumeControl = document.getElementById("volumeControl");
+      const setVolume = (value) => {
+        const nextVolume = Math.max(0, Math.min(1, value));
+        Object.values(songs).forEach((song) => {
+          song.el.volume = nextVolume;
+        });
+      };
+
+      if (volumeControl) {
+        volumeControl.value = "0.7";
+        setVolume(0.7);
+        volumeControl.addEventListener("input", (event) => {
+          setVolume(parseFloat(event.target.value));
+        });
+      }
 
       // ── floating petals
       const emojis = ["🌸", "💕", "✨", "💜", "🌺", "💗", "⭐", "🌷"];
