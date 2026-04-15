@@ -411,6 +411,7 @@
 
       .letter-container {
         position: relative;
+        z-index: 1;
         max-width: 680px;
         width: 100%;
         margin: 0 auto;
@@ -427,6 +428,115 @@
           0 0 60px rgba(236, 72, 153, 0.12),
           0 0 120px rgba(147, 51, 234, 0.08),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .photo-carousel-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 2.5rem 1.5rem;
+        pointer-events: none;
+        opacity: 0.65;
+        filter: saturate(0.95);
+        --carousel-slide-height: clamp(150px, 22vw, 200px);
+      }
+      #letterScreen:not(.hidden) .photo-carousel-bg {
+        pointer-events: auto;
+      }
+      .carousel-column {
+        width: min(28vw, 220px);
+      }
+      .carousel-window {
+        width: 100%;
+        height: clamp(360px, 70vh, 520px);
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: none;
+        will-change: transform;
+      }
+      .carousel-slide {
+        width: 100%;
+        height: var(--carousel-slide-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .polaroid {
+        width: 100%;
+        height: 100%;
+        background: #fdfaff;
+        padding: 0.6rem 0.6rem 1.4rem;
+        border-radius: 12px;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+      }
+      .polaroid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        cursor: pointer;
+      }
+
+      .image-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .image-modal.show {
+        display: flex;
+      }
+      .image-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 15, 0.75);
+        backdrop-filter: blur(8px);
+      }
+      .image-modal-content {
+        position: relative;
+        z-index: 1;
+        max-width: min(92vw, 960px);
+        max-height: 85vh;
+      }
+      .image-modal-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        background: rgba(10, 10, 15, 0.6);
+      }
+      .image-modal-close {
+        position: absolute;
+        top: -14px;
+        right: -14px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid rgba(249, 168, 212, 0.45);
+        background: rgba(10, 10, 15, 0.85);
+        color: var(--pink-soft);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s;
+      }
+      .image-modal-close:hover {
+        border-color: var(--pink-deep);
+        color: var(--white);
+        box-shadow: 0 0 18px rgba(236, 72, 153, 0.35);
       }
 
       .letter-header {
@@ -675,6 +785,7 @@
         padding-top: clamp(3rem, 6vh, 5rem);
         padding-bottom: clamp(4rem, 8vh, 6rem);
         justify-content: flex-start;
+        position: relative;
       }
       #letterScreen::-webkit-scrollbar {
         width: 4px;
@@ -902,6 +1013,110 @@
 
     <!-- ══════════ SCREEN 3: LETTER ══════════ -->
     <div class="screen hidden" id="letterScreen">
+      <div class="photo-carousel-bg" aria-hidden="true">
+        <div class="carousel-column">
+          <div class="carousel-window">
+            <div class="carousel-track" id="carouselTrackLeft">
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260402_140036_973.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_092322_744.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_092352_303.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_092454_907.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133557_388.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133633_358.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133649_414.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133705_140.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133706_516.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133713_879.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-column">
+          <div class="carousel-window">
+            <div class="carousel-track" id="carouselTrackRight">
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260402_140039_414.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_092350_551.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_092453_096.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133631_155.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133634_079.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133650_452.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133705_978.jpg" alt="" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="polaroid">
+                  <img src="images/IMG_20260405_133713_504.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="letter-container">
         <button class="back-btn" onclick="goToFrontPage()">Back</button>
         <div class="corner-deco tl">❧</div>
@@ -987,6 +1202,21 @@
       </div>
     </div>
 
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+      <div class="image-modal-backdrop" onclick="closeImageModal()"></div>
+      <div class="image-modal-content" role="dialog" aria-modal="true">
+        <button
+          class="image-modal-close"
+          type="button"
+          onclick="closeImageModal()"
+          aria-label="Close image"
+        >
+          X
+        </button>
+        <img id="modalImage" src="" alt="Selected photo" />
+      </div>
+    </div>
+
     <!-- ══════════ MUSIC PLAYER ══════════ -->
     <div class="music-player hidden" id="musicPlayer">
       <div class="music-disc" id="musicDisc"></div>
@@ -1060,6 +1290,112 @@
           setVolume(parseFloat(event.target.value));
         });
       }
+
+      const carouselData = [
+        {
+          track: document.getElementById("carouselTrackLeft"),
+          offset: 0,
+          direction: -1,
+        },
+        {
+          track: document.getElementById("carouselTrackRight"),
+          offset: 0,
+          direction: 1,
+        },
+      ].filter((carousel) => carousel.track);
+
+      function prepareCarousel(carousel) {
+        const track = carousel.track;
+        const windowEl = track.closest(".carousel-window");
+        if (!windowEl || !track.children.length) return;
+
+        if (!track.dataset.baseCount) {
+          track.dataset.baseCount = track.children.length;
+        }
+
+        if (!track.dataset.duplicated) {
+          const originals = Array.from(track.children);
+          originals.forEach((slide) => {
+            track.appendChild(slide.cloneNode(true));
+          });
+          track.dataset.duplicated = "true";
+        }
+
+        const slides = Array.from(track.children);
+        const gap = parseFloat(getComputedStyle(track).rowGap || "0") || 0;
+        const slideHeight = slides[0].getBoundingClientRect().height;
+        const step = slideHeight + gap;
+        const baseCount =
+          parseInt(track.dataset.baseCount, 10) || slides.length;
+
+        carousel.step = step;
+        carousel.cycle = step * baseCount;
+        track.style.height = step * slides.length - gap + "px";
+      }
+
+      function updateAllCarousels() {
+        carouselData.forEach(prepareCarousel);
+      }
+
+      const carouselSpeed = 18;
+      let lastCarouselTime = null;
+      function animateCarousels(time) {
+        if (!lastCarouselTime) lastCarouselTime = time;
+        const delta = (time - lastCarouselTime) / 1000;
+        lastCarouselTime = time;
+
+        carouselData.forEach((carousel) => {
+          if (!carousel.cycle) return;
+          carousel.offset += carouselSpeed * delta * carousel.direction;
+          if (carousel.offset >= carousel.cycle) {
+            carousel.offset -= carousel.cycle;
+          }
+          if (carousel.offset < 0) {
+            carousel.offset += carousel.cycle;
+          }
+          carousel.track.style.transform =
+            "translateY(-" + carousel.offset + "px)";
+        });
+
+        requestAnimationFrame(animateCarousels);
+      }
+
+      window.addEventListener("resize", updateAllCarousels);
+      updateAllCarousels();
+      requestAnimationFrame(animateCarousels);
+
+      const imageModal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+
+      function openImageModal(src) {
+        if (!imageModal || !modalImage) return;
+        modalImage.src = src;
+        imageModal.classList.add("show");
+        imageModal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeImageModal() {
+        if (!imageModal || !modalImage) return;
+        imageModal.classList.remove("show");
+        imageModal.setAttribute("aria-hidden", "true");
+        modalImage.src = "";
+      }
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (
+          target instanceof HTMLImageElement &&
+          target.closest(".photo-carousel-bg")
+        ) {
+          openImageModal(target.src);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeImageModal();
+        }
+      });
 
       // ── floating petals
       const emojis = ["🌸", "💕", "✨", "💜", "🌺", "💗", "⭐", "🌷"];
