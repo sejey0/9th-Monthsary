@@ -1,710 +1,1171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our 9th Monthsary 💕</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our 9th Monthsary 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- 🎵 ADD YOUR OWN SONGS HERE -->
-  <!-- Replace the src values with your actual audio file paths or URLs -->
-  <audio id="song1" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="song2" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-  </audio>
+    <!-- 🎵 ADD YOUR OWN SONGS HERE -->
+    <!-- Replace the src values with your actual audio file paths or URLs -->
+    <audio id="song1" loop>
+      <source
+        src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="song2" loop>
+      <source
+        src="https://www.bensound.com/bensound-music/bensound-love.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
 
-  <style>
-    :root {
-      --pink-soft:   #f9a8d4;
-      --pink-deep:   #ec4899;
-      --pink-rose:   #fce7f3;
-      --purple-soft: #c084fc;
-      --purple-deep: #9333ea;
-      --purple-dark: #581c87;
-      --black:       #0a0a0f;
-      --white:       #fdfaff;
-    }
+    <style>
+      :root {
+        --pink-soft: #f9a8d4;
+        --pink-deep: #ec4899;
+        --pink-rose: #fce7f3;
+        --purple-soft: #c084fc;
+        --purple-deep: #9333ea;
+        --purple-dark: #581c87;
+        --black: #0a0a0f;
+        --white: #fdfaff;
+      }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--black);
-      overflow: hidden;
-      height: 100vh;
-      width: 100vw;
-      cursor: default;
-    }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: var(--black);
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        cursor: default;
+      }
 
-    /* ─── SHARED ANIMATED BG ─── */
-    .mesh-bg {
-      position: fixed; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 30%, #3b0764cc 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 70%, #831843aa 0%, transparent 60%),
-        radial-gradient(ellipse 100% 100% at 50% 50%, #1a0a2e 0%, #0a0a0f 100%);
-      animation: meshShift 8s ease-in-out infinite alternate;
-    }
-    @keyframes meshShift {
-      0%   { filter: hue-rotate(0deg) brightness(1); }
-      100% { filter: hue-rotate(20deg) brightness(1.15); }
-    }
+      /* ─── SHARED ANIMATED BG ─── */
+      .mesh-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 20% 30%,
+            #3b0764cc 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 80% at 80% 70%,
+            #831843aa 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 100% 100% at 50% 50%,
+            #1a0a2e 0%,
+            #0a0a0f 100%
+          );
+        animation: meshShift 8s ease-in-out infinite alternate;
+      }
+      @keyframes meshShift {
+        0% {
+          filter: hue-rotate(0deg) brightness(1);
+        }
+        100% {
+          filter: hue-rotate(20deg) brightness(1.15);
+        }
+      }
 
-    /* ─── FLOATING HEARTS / PETALS ─── */
-    .float-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-    .petal {
-      position: absolute;
-      bottom: -60px;
-      font-size: clamp(12px, 2vw, 22px);
-      animation: floatUp linear infinite;
-      opacity: 0;
-    }
-    @keyframes floatUp {
-      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10%  { opacity: 0.8; }
-      90%  { opacity: 0.5; }
-      100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
-    }
+      /* ─── FLOATING HEARTS / PETALS ─── */
+      .float-container {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .petal {
+        position: absolute;
+        bottom: -60px;
+        font-size: clamp(12px, 2vw, 22px);
+        animation: floatUp linear infinite;
+        opacity: 0;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-110vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
 
-    /* ─── SCREENS ─── */
-    .screen {
-      position: fixed; inset: 0; z-index: 10;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .screen.hidden { opacity: 0; pointer-events: none; transform: scale(0.96); }
+      /* ─── SCREENS ─── */
+      .screen {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.96);
+      }
 
-    /* ─── LOCK SCREEN ─── */
-    #lockScreen { text-align: center; }
+      /* ─── LOCK SCREEN ─── */
+      #lockScreen {
+        text-align: center;
+      }
 
-    .lock-wrap {
-      position: relative;
-      cursor: pointer;
-      display: inline-block;
-      filter: drop-shadow(0 0 30px #ec489977);
-      transition: filter 0.3s;
-    }
-    .lock-wrap:hover { filter: drop-shadow(0 0 50px #c084fcaa); }
+      .lock-wrap {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        filter: drop-shadow(0 0 30px #ec489977);
+        transition: filter 0.3s;
+      }
+      .lock-wrap:hover {
+        filter: drop-shadow(0 0 50px #c084fcaa);
+      }
 
-    .lock-svg { width: 120px; height: 120px; }
+      .lock-svg {
+        width: 120px;
+        height: 120px;
+        display: block;
+      }
 
-    .lock-body {
-      fill: none; stroke: var(--pink-soft); stroke-width: 3;
-      stroke-linejoin: round;
-      transition: all 0.6s cubic-bezier(.4,2,.6,1);
-    }
-    .lock-shackle {
-      fill: none; stroke: var(--purple-soft); stroke-width: 3;
-      stroke-linecap: round;
-      transform-origin: 60px 42px;
-      transition: all 0.6s cubic-bezier(.4,2,.6,1);
-    }
-    .lock-keyhole { fill: var(--pink-soft); transition: fill 0.4s; }
+      .lock-body {
+        fill: none;
+        stroke: var(--pink-soft);
+        stroke-width: 3;
+        stroke-linejoin: round;
+        transition: all 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+      }
+      .lock-shackle {
+        fill: none;
+        stroke: var(--purple-soft);
+        stroke-width: 3;
+        stroke-linecap: round;
+        transform-origin: 60px 42px;
+        transition: all 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+      }
+      .lock-keyhole {
+        fill: var(--pink-soft);
+        transition: fill 0.4s;
+      }
 
-    .lock-wrap.unlocked .lock-shackle {
-      transform: rotate(-45deg) translateY(-8px);
-      stroke: var(--pink-deep);
-    }
-    .lock-wrap.unlocked .lock-body { stroke: var(--purple-deep); }
-    .lock-wrap.unlocked .lock-keyhole { fill: var(--purple-soft); }
+      .lock-wrap.unlocked .lock-shackle {
+        transform: rotate(-45deg) translateY(-8px);
+        stroke: var(--pink-deep);
+      }
+      .lock-wrap.unlocked .lock-body {
+        stroke: var(--purple-deep);
+      }
+      .lock-wrap.unlocked .lock-keyhole {
+        fill: var(--purple-soft);
+      }
 
-    /* ─── SPARKLE RING ─── */
-    .sparkle-ring {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border: 2px solid var(--pink-soft);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .lock-wrap.unlocked .sparkle-ring {
-      animation: sparkleOut 0.8s ease-out forwards;
-    }
-    @keyframes sparkleOut {
-      0%   { transform: translate(-50%,-50%) scale(0.5); opacity: 0.9; }
-      100% { transform: translate(-50%,-50%) scale(2); opacity: 0; }
-    }
+      /* ─── SPARKLE RING ─── */
+      .sparkle-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 2px solid var(--pink-soft);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .lock-wrap.unlocked .sparkle-ring {
+        animation: sparkleOut 0.8s ease-out forwards;
+      }
+      @keyframes sparkleOut {
+        0% {
+          transform: translate(-50%, -50%) scale(0.5);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2);
+          opacity: 0;
+        }
+      }
 
-    /* ─── GLAM TEXT ─── */
-    .display-font { font-family: 'Great Vibes', cursive; }
-    .body-font { font-family: 'Cormorant Garamond', serif; }
+      /* ─── GLAM TEXT ─── */
+      .display-font {
+        font-family: "Great Vibes", cursive;
+      }
+      .body-font {
+        font-family: "Cormorant Garamond", serif;
+      }
 
-    .glow-text {
-      color: var(--white);
-      text-shadow:
-        0 0 20px var(--pink-soft),
-        0 0 40px var(--pink-deep),
-        0 0 80px var(--purple-soft);
-    }
+      .glow-text {
+        color: var(--white);
+        text-shadow:
+          0 0 20px var(--pink-soft),
+          0 0 40px var(--pink-deep),
+          0 0 80px var(--purple-soft);
+      }
 
-    .subtitle-text {
-      color: var(--pink-soft);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      font-size: 0.65rem;
-      font-weight: 500;
-    }
+      .subtitle-text {
+        color: var(--pink-soft);
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-size: 0.65rem;
+        font-weight: 500;
+      }
 
-    /* pulse ring below lock */
-    .pulse-ring {
-      position: absolute;
-      top:50%; left:50%;
-      transform: translate(-50%,-50%);
-      width: 170px; height: 170px;
-      border-radius: 50%;
-      border: 1px solid var(--pink-soft);
-      opacity: 0.4;
-      animation: pulseRing 2.4s ease-out infinite;
-    }
-    .pulse-ring2 { animation-delay: 0.8s; opacity: 0.25; }
-    .pulse-ring3 { animation-delay: 1.6s; opacity: 0.15; }
-    @keyframes pulseRing {
-      0%   { transform: translate(-50%,-50%) scale(1); opacity: 0.4; }
-      100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
-    }
+      /* pulse ring below lock */
+      .pulse-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 1px solid var(--pink-soft);
+        opacity: 0.4;
+        animation: pulseRing 2.4s ease-out infinite;
+      }
+      .pulse-ring2 {
+        animation-delay: 0.8s;
+        opacity: 0.25;
+      }
+      .pulse-ring3 {
+        animation-delay: 1.6s;
+        opacity: 0.15;
+      }
+      @keyframes pulseRing {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2.2);
+          opacity: 0;
+        }
+      }
 
-    /* ─── SONG SELECTION SCREEN ─── */
-    #songScreen { gap: 2rem; }
+      /* ─── SONG SELECTION SCREEN ─── */
+      #songScreen {
+        gap: 2rem;
+      }
 
-    .song-card {
-      position: relative;
-      width: 220px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(249,168,212,0.3);
-      border-radius: 20px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: all 0.35s ease;
-      overflow: hidden;
-    }
-    .song-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(147,51,234,0.15));
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
-    .song-card:hover { border-color: var(--pink-deep); transform: translateY(-6px) scale(1.02); }
-    .song-card:hover::before { opacity: 1; }
-    .song-card.active {
-      border-color: var(--pink-deep);
-      box-shadow: 0 0 30px rgba(236,72,153,0.4), inset 0 0 30px rgba(147,51,234,0.1);
-    }
-    .song-card.active::before { opacity: 1; }
+      .song-card {
+        position: relative;
+        width: 220px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid rgba(249, 168, 212, 0.3);
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: all 0.35s ease;
+        overflow: hidden;
+      }
+      .song-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.15),
+          rgba(147, 51, 234, 0.15)
+        );
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .song-card:hover {
+        border-color: var(--pink-deep);
+        transform: translateY(-6px) scale(1.02);
+      }
+      .song-card:hover::before {
+        opacity: 1;
+      }
+      .song-card.active {
+        border-color: var(--pink-deep);
+        box-shadow:
+          0 0 30px rgba(236, 72, 153, 0.4),
+          inset 0 0 30px rgba(147, 51, 234, 0.1);
+      }
+      .song-card.active::before {
+        opacity: 1;
+      }
 
-    .note-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-      animation: noteBounce 1.5s ease-in-out infinite alternate;
-    }
-    .song-card:nth-child(2) .note-icon { animation-delay: 0.75s; }
-    @keyframes noteBounce {
-      0%   { transform: translateY(0) rotate(-5deg); }
-      100% { transform: translateY(-6px) rotate(5deg); }
-    }
+      .note-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+        animation: noteBounce 1.5s ease-in-out infinite alternate;
+      }
+      .song-card:nth-child(2) .note-icon {
+        animation-delay: 0.75s;
+      }
+      @keyframes noteBounce {
+        0% {
+          transform: translateY(0) rotate(-5deg);
+        }
+        100% {
+          transform: translateY(-6px) rotate(5deg);
+        }
+      }
 
-    .open-btn {
-      margin-top: 2rem;
-      padding: 0.85rem 2.5rem;
-      background: linear-gradient(135deg, var(--pink-deep), var(--purple-deep));
-      border: none;
-      border-radius: 50px;
-      color: white;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 0 30px rgba(236,72,153,0.5);
-      transition: all 0.3s;
-    }
-    .open-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 50px rgba(236,72,153,0.7);
-    }
-    .open-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+      .open-btn {
+        margin-top: 2rem;
+        padding: 0.85rem 2.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--pink-deep),
+          var(--purple-deep)
+        );
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+        transition: all 0.3s;
+      }
+      .open-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 50px rgba(236, 72, 153, 0.7);
+      }
+      .open-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+      }
 
-    /* ─── LETTER SCREEN ─── */
-    #letterScreen { padding: 1.5rem; overflow-y: auto; }
+      /* ─── LETTER SCREEN ─── */
+      #letterScreen {
+        padding: 1.5rem;
+        overflow-y: auto;
+      }
 
-    .letter-container {
-      position: relative;
-      max-width: 680px;
-      width: 100%;
-      margin: auto;
-      background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(249,168,212,0.2);
-      border-radius: 24px;
-      padding: 3rem 3.5rem;
-      backdrop-filter: blur(16px);
-      box-shadow:
-        0 0 60px rgba(236,72,153,0.12),
-        0 0 120px rgba(147,51,234,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-    }
+      .letter-container {
+        position: relative;
+        max-width: 680px;
+        width: 100%;
+        margin: auto;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid rgba(249, 168, 212, 0.2);
+        border-radius: 24px;
+        padding: 3rem 3.5rem;
+        backdrop-filter: blur(16px);
+        box-shadow:
+          0 0 60px rgba(236, 72, 153, 0.12),
+          0 0 120px rgba(147, 51, 234, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
 
-    .letter-header { text-align: center; margin-bottom: 2rem; }
+      .letter-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
 
-    .divider {
-      display: flex; align-items: center; gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .divider-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(249,168,212,0.5), transparent);
-    }
-    .divider-heart { color: var(--pink-soft); font-size: 0.9rem; }
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .divider-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(249, 168, 212, 0.5),
+          transparent
+        );
+      }
+      .divider-heart {
+        color: var(--pink-soft);
+        font-size: 0.9rem;
+      }
 
-    .letter-body {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      line-height: 2;
-      color: rgba(253,250,255,0.88);
-      font-style: italic;
-    }
-    .letter-body p { margin-bottom: 1.25rem; }
-    .letter-body .highlight {
-      color: var(--pink-soft);
-      font-style: normal;
-      font-weight: 400;
-    }
+      .letter-body {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        line-height: 2;
+        color: rgba(253, 250, 255, 0.88);
+        font-style: italic;
+      }
+      .letter-body p {
+        margin-bottom: 1.25rem;
+      }
+      .letter-body .highlight {
+        color: var(--pink-soft);
+        font-style: normal;
+        font-weight: 400;
+      }
 
-    .sign-off {
-      text-align: right;
-      margin-top: 2rem;
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: var(--pink-soft);
-      filter: drop-shadow(0 0 10px rgba(236,72,153,0.5));
-    }
+      .sign-off {
+        text-align: right;
+        margin-top: 2rem;
+        font-family: "Great Vibes", cursive;
+        font-size: 2.5rem;
+        color: var(--pink-soft);
+        filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+      }
 
-    /* ─── MUSIC PLAYER ─── */
-    .music-player {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 100;
-      background: rgba(10,10,15,0.85);
-      border: 1px solid rgba(249,168,212,0.25);
-      border-radius: 60px;
-      padding: 0.6rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 8px 32px rgba(236,72,153,0.2);
-      transition: all 0.3s;
-    }
-    .music-player:hover { border-color: rgba(249,168,212,0.5); }
+      /* ─── MUSIC PLAYER ─── */
+      .music-player {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 100;
+        background: rgba(10, 10, 15, 0.85);
+        border: 1px solid rgba(249, 168, 212, 0.25);
+        border-radius: 60px;
+        padding: 0.6rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
+        transition: all 0.3s;
+      }
+      .music-player:hover {
+        border-color: rgba(249, 168, 212, 0.5);
+      }
 
-    .music-disc {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      background: conic-gradient(var(--pink-deep), var(--purple-deep), var(--pink-soft), var(--pink-deep));
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      box-shadow: 0 0 15px rgba(236,72,153,0.4);
-    }
-    .music-disc::after {
-      content: '';
-      position: absolute;
-      width: 12px; height: 12px;
-      background: var(--black);
-      border-radius: 50%;
-    }
-    .music-disc.spinning { animation: spin 3s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+      #lockScreen:not(.hidden) ~ .music-player {
+        display: none;
+      }
 
-    .player-info {
-      display: flex; flex-direction: column;
-      max-width: 120px;
-    }
-    .now-playing { font-size: 0.55rem; color: var(--pink-soft); letter-spacing: 0.1em; text-transform: uppercase; }
-    .song-name { font-size: 0.72rem; color: var(--white); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .music-disc {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--pink-deep),
+          var(--purple-deep),
+          var(--pink-soft),
+          var(--pink-deep)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+      }
+      .music-disc::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: var(--black);
+        border-radius: 50%;
+      }
+      .music-disc.spinning {
+        animation: spin 3s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-    .player-btn {
-      background: none; border: none; cursor: pointer;
-      color: var(--pink-soft); font-size: 1rem;
-      width: 28px; height: 28px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      transition: all 0.2s;
-    }
-    .player-btn:hover { background: rgba(236,72,153,0.2); color: white; }
+      .player-info {
+        display: flex;
+        flex-direction: column;
+        max-width: 120px;
+      }
+      .now-playing {
+        font-size: 0.55rem;
+        color: var(--pink-soft);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .song-name {
+        font-size: 0.72rem;
+        color: var(--white);
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
-    .switch-btn {
-      font-size: 0.6rem;
-      letter-spacing: 0.05em;
-      padding: 0.25rem 0.6rem;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(147,51,234,0.2));
-      border: 1px solid rgba(249,168,212,0.25);
-      color: var(--pink-soft);
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Montserrat', sans-serif;
-      white-space: nowrap;
-    }
-    .switch-btn:hover { background: linear-gradient(135deg, rgba(236,72,153,0.4), rgba(147,51,234,0.4)); color: white; }
+      .player-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--pink-soft);
+        font-size: 1rem;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s;
+      }
+      .player-btn:hover {
+        background: rgba(236, 72, 153, 0.2);
+        color: white;
+      }
 
-    /* ─── CORNER DECO ─── */
-    .corner-deco {
-      position: absolute;
-      font-size: 1.2rem;
-      opacity: 0.3;
-    }
-    .tl { top: 1rem; left: 1.2rem; }
-    .tr { top: 1rem; right: 1.2rem; }
-    .bl { bottom: 1rem; left: 1.2rem; }
-    .br { bottom: 1rem; right: 1.2rem; }
+      .switch-btn {
+        font-size: 0.6rem;
+        letter-spacing: 0.05em;
+        padding: 0.25rem 0.6rem;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.2),
+          rgba(147, 51, 234, 0.2)
+        );
+        border: 1px solid rgba(249, 168, 212, 0.25);
+        color: var(--pink-soft);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: "Montserrat", sans-serif;
+        white-space: nowrap;
+      }
+      .switch-btn:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.4),
+          rgba(147, 51, 234, 0.4)
+        );
+        color: white;
+      }
 
-    /* ─── PROGRESS BAR ─── */
-    .screen-dots {
-      position: fixed; top: 1.2rem; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 0.5rem; z-index: 200;
-    }
-    .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(249,168,212,0.25);
-      transition: all 0.4s;
-    }
-    .dot.active { width: 20px; border-radius: 3px; background: var(--pink-soft); }
+      /* ─── CORNER DECO ─── */
+      .corner-deco {
+        position: absolute;
+        font-size: 1.2rem;
+        opacity: 0.3;
+      }
+      .tl {
+        top: 1rem;
+        left: 1.2rem;
+      }
+      .tr {
+        top: 1rem;
+        right: 1.2rem;
+      }
+      .bl {
+        bottom: 1rem;
+        left: 1.2rem;
+      }
+      .br {
+        bottom: 1rem;
+        right: 1.2rem;
+      }
 
-    /* ─── SCROLL LETTER ─── */
-    #letterScreen { overflow-y: auto; height: 100vh; padding-top: 5rem; padding-bottom: 6rem; }
-    #letterScreen::-webkit-scrollbar { width: 4px; }
-    #letterScreen::-webkit-scrollbar-track { background: transparent; }
-    #letterScreen::-webkit-scrollbar-thumb { background: rgba(249,168,212,0.3); border-radius: 2px; }
+      /* ─── PROGRESS BAR ─── */
+      .screen-dots {
+        position: fixed;
+        top: 1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+        z-index: 200;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(249, 168, 212, 0.25);
+        transition: all 0.4s;
+      }
+      .dot.active {
+        width: 20px;
+        border-radius: 3px;
+        background: var(--pink-soft);
+      }
 
-    /* ─── TOAST ─── */
-    .toast {
-      position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(30px);
-      background: rgba(10,10,15,0.9);
-      border: 1px solid rgba(249,168,212,0.3);
-      border-radius: 30px;
-      padding: 0.5rem 1.2rem;
-      color: var(--pink-soft);
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      z-index: 300;
-      opacity: 0;
-      transition: all 0.3s;
-      pointer-events: none;
-      backdrop-filter: blur(10px);
-      white-space: nowrap;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+      /* ─── SCROLL LETTER ─── */
+      #letterScreen {
+        overflow-y: auto;
+        height: 100vh;
+        padding-top: 5rem;
+        padding-bottom: 6rem;
+      }
+      #letterScreen::-webkit-scrollbar {
+        width: 4px;
+      }
+      #letterScreen::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #letterScreen::-webkit-scrollbar-thumb {
+        background: rgba(249, 168, 212, 0.3);
+        border-radius: 2px;
+      }
 
-    /* responsive */
-    @media (max-width: 640px) {
-      .letter-container { padding: 2rem 1.5rem; }
-      .song-cards-wrap { flex-direction: column; gap: 1rem; }
-      .song-card { width: 180px; }
-    }
-  </style>
-</head>
-<body>
+      /* ─── TOAST ─── */
+      .toast {
+        position: fixed;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(30px);
+        background: rgba(10, 10, 15, 0.9);
+        border: 1px solid rgba(249, 168, 212, 0.3);
+        border-radius: 30px;
+        padding: 0.5rem 1.2rem;
+        color: var(--pink-soft);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        z-index: 300;
+        opacity: 0;
+        transition: all 0.3s;
+        pointer-events: none;
+        backdrop-filter: blur(10px);
+        white-space: nowrap;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
 
-<!-- ANIMATED BACKGROUND -->
-<div class="mesh-bg"></div>
+      /* responsive */
+      @media (max-width: 640px) {
+        .letter-container {
+          padding: 2rem 1.5rem;
+        }
+        .song-cards-wrap {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .song-card {
+          width: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="mesh-bg"></div>
 
-<!-- FLOATING PETALS -->
-<div class="float-container" id="floatContainer"></div>
+    <!-- FLOATING PETALS -->
+    <div class="float-container" id="floatContainer"></div>
 
-<!-- STEP DOTS -->
-<div class="screen-dots" id="stepDots">
-  <div class="dot active" id="dot0"></div>
-  <div class="dot" id="dot1"></div>
-  <div class="dot" id="dot2"></div>
-</div>
-
-<!-- ══════════ SCREEN 1: LOCK ══════════ -->
-<div class="screen" id="lockScreen">
-  <p class="subtitle-text mb-6" style="letter-spacing:0.4em">❦ a love story ❦</p>
-
-  <div style="position:relative; display:inline-flex; align-items:center; justify-content:center; margin-bottom:2rem;">
-    <div class="pulse-ring"></div>
-    <div class="pulse-ring pulse-ring2"></div>
-    <div class="pulse-ring pulse-ring3"></div>
-
-    <div class="lock-wrap" id="lockWrap" onclick="unlockScreen()">
-      <div class="sparkle-ring"></div>
-      <svg class="lock-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- shackle -->
-        <path class="lock-shackle" d="M38 55V42C38 27.1 50.1 15 65 15C79.9 15 92 27.1 92 42V55" stroke-linecap="round"/>
-        <!-- body -->
-        <rect class="lock-body" x="22" y="54" width="76" height="54" rx="12" ry="12"/>
-        <!-- keyhole -->
-        <circle class="lock-keyhole" cx="60" cy="78" r="7"/>
-        <rect class="lock-keyhole" x="56.5" y="78" width="7" height="10" rx="2"/>
-      </svg>
+    <!-- STEP DOTS -->
+    <div class="screen-dots" id="stepDots">
+      <div class="dot active" id="dot0"></div>
+      <div class="dot" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
     </div>
-  </div>
 
-  <h1 class="display-font glow-text" style="font-size: clamp(3rem,8vw,5.5rem); line-height:1.1;">
-    Our 9th Monthsary
-  </h1>
+    <!-- ══════════ SCREEN 1: LOCK ══════════ -->
+    <div class="screen" id="lockScreen">
+      <div
+        style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 2rem;
+        "
+      >
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring pulse-ring2"></div>
+        <div class="pulse-ring pulse-ring3"></div>
 
-  <p class="subtitle-text mt-4" style="color:rgba(253,250,255,0.45); font-size:0.6rem;">
-    click the lock to begin
-  </p>
+        <div class="lock-wrap" id="lockWrap" onclick="unlockScreen()">
+          <div class="sparkle-ring"></div>
+          <svg
+            class="lock-svg"
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- shackle -->
+            <path
+              class="lock-shackle"
+              d="M33 55V42C33 27.1 45.1 15 60 15C74.9 15 87 27.1 87 42V55"
+              stroke-linecap="round"
+            />
+            <!-- body -->
+            <rect
+              class="lock-body"
+              x="22"
+              y="54"
+              width="76"
+              height="54"
+              rx="12"
+              ry="12"
+            />
+            <!-- keyhole -->
+            <circle class="lock-keyhole" cx="60" cy="78" r="7" />
+            <rect
+              class="lock-keyhole"
+              x="56.5"
+              y="78"
+              width="7"
+              height="10"
+              rx="2"
+            />
+          </svg>
+        </div>
+      </div>
 
-  <div style="margin-top:2.5rem; display:flex; gap:0.4rem; align-items:center; justify-content:center;">
-    <span style="font-size:1.4rem; animation: noteBounce 2s ease-in-out infinite alternate;">🌸</span>
-    <span style="font-size:1.4rem; animation: noteBounce 2s ease-in-out infinite alternate; animation-delay:0.5s;">💜</span>
-    <span style="font-size:1.4rem; animation: noteBounce 2s ease-in-out infinite alternate; animation-delay:1s;">🌸</span>
-  </div>
-</div>
-
-<!-- ══════════ SCREEN 2: SONG SELECTION ══════════ -->
-<div class="screen hidden" id="songScreen">
-  <p class="subtitle-text mb-3" style="letter-spacing:0.3em; color: rgba(253,250,255,0.4);">before we open our letter</p>
-  <h2 class="display-font glow-text mb-2" style="font-size: clamp(2rem,6vw,3.5rem);">Choose a Song</h2>
-  <p class="body-font mb-8" style="color: rgba(249,168,212,0.6); font-size:0.9rem; font-style:italic;">to serenade our memories</p>
-
-  <div class="song-cards-wrap" style="display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;">
-    <div class="song-card" id="card1" onclick="selectSong(1)">
-      <span class="note-icon">🎵</span>
-      <p class="body-font" style="color:var(--white); font-size:1.1rem; font-weight:400;">Song One</p>
-      <p style="color:rgba(249,168,212,0.5); font-size:0.65rem; margin-top:0.5rem; letter-spacing:0.1em; text-transform:uppercase;">Our first chapter</p>
-    </div>
-    <div class="song-card" id="card2" onclick="selectSong(2)">
-      <span class="note-icon">🎶</span>
-      <p class="body-font" style="color:var(--white); font-size:1.1rem; font-weight:400;">Song Two</p>
-      <p style="color:rgba(249,168,212,0.5); font-size:0.65rem; margin-top:0.5rem; letter-spacing:0.1em; text-transform:uppercase;">Our second melody</p>
-    </div>
-  </div>
-
-  <button class="open-btn mt-8" id="openLetterBtn" onclick="openLetter()" disabled>
-    ✦ Open Our Letter ✦
-  </button>
-
-  <p class="subtitle-text mt-4" style="color:rgba(253,250,255,0.2); font-size:0.55rem;">
-    you can change the song anytime inside
-  </p>
-</div>
-
-<!-- ══════════ SCREEN 3: LETTER ══════════ -->
-<div class="screen hidden" id="letterScreen">
-  <div class="letter-container">
-    <div class="corner-deco tl">❧</div>
-    <div class="corner-deco tr">❧</div>
-    <div class="corner-deco bl">❧</div>
-    <div class="corner-deco br">❧</div>
-
-    <div class="letter-header">
-      <p class="subtitle-text mb-2" style="color: rgba(249,168,212,0.5);">❦ nine months of us ❦</p>
-      <h1 class="display-font glow-text" style="font-size: clamp(2.5rem,6vw,4rem); line-height:1.1;">
-        Happy 9th Monthsary
+      <h1
+        class="display-font glow-text"
+        style="font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1"
+      >
+        Our 9th Monthsary
       </h1>
-      <p class="body-font" style="color: rgba(249,168,212,0.55); font-size:0.9rem; font-style:italic; margin-top:0.5rem;">
-        My love, my favorite person 🌸
+
+      <p
+        class="subtitle-text mt-4"
+        style="color: rgba(253, 250, 255, 0.45); font-size: 0.6rem"
+      >
+        click the lock to begin
+      </p>
+
+      <div
+        style="
+          margin-top: 2.5rem;
+          display: flex;
+          gap: 0.4rem;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <span
+          style="
+            font-size: 1.4rem;
+            animation: noteBounce 2s ease-in-out infinite alternate;
+          "
+          >🌸</span
+        >
+        <span
+          style="
+            font-size: 1.4rem;
+            animation: noteBounce 2s ease-in-out infinite alternate;
+            animation-delay: 0.5s;
+          "
+          >💜</span
+        >
+        <span
+          style="
+            font-size: 1.4rem;
+            animation: noteBounce 2s ease-in-out infinite alternate;
+            animation-delay: 1s;
+          "
+          >🌸</span
+        >
+      </div>
+    </div>
+
+    <!-- ══════════ SCREEN 2: SONG SELECTION ══════════ -->
+    <div class="screen hidden" id="songScreen">
+      <p
+        class="subtitle-text mb-3"
+        style="letter-spacing: 0.3em; color: rgba(253, 250, 255, 0.4)"
+      >
+        before we open our letter
+      </p>
+      <h2
+        class="display-font glow-text mb-2"
+        style="font-size: clamp(2rem, 6vw, 3.5rem)"
+      >
+        Choose a Song
+      </h2>
+      <p
+        class="body-font mb-8"
+        style="
+          color: rgba(249, 168, 212, 0.6);
+          font-size: 0.9rem;
+          font-style: italic;
+        "
+      >
+        to serenade our memories
+      </p>
+
+      <div
+        class="song-cards-wrap"
+        style="
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        "
+      >
+        <div class="song-card" id="card1" onclick="selectSong(1)">
+          <span class="note-icon">🎵</span>
+          <p
+            class="body-font"
+            style="color: var(--white); font-size: 1.1rem; font-weight: 400"
+          >
+            Song One
+          </p>
+          <p
+            style="
+              color: rgba(249, 168, 212, 0.5);
+              font-size: 0.65rem;
+              margin-top: 0.5rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+            "
+          >
+            Our first chapter
+          </p>
+        </div>
+        <div class="song-card" id="card2" onclick="selectSong(2)">
+          <span class="note-icon">🎶</span>
+          <p
+            class="body-font"
+            style="color: var(--white); font-size: 1.1rem; font-weight: 400"
+          >
+            Song Two
+          </p>
+          <p
+            style="
+              color: rgba(249, 168, 212, 0.5);
+              font-size: 0.65rem;
+              margin-top: 0.5rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+            "
+          >
+            Our second melody
+          </p>
+        </div>
+      </div>
+
+      <button
+        class="open-btn mt-8"
+        id="openLetterBtn"
+        onclick="openLetter()"
+        disabled
+      >
+        ✦ Open Our Letter ✦
+      </button>
+
+      <p
+        class="subtitle-text mt-4"
+        style="color: rgba(253, 250, 255, 0.2); font-size: 0.55rem"
+      >
+        you can change the song anytime inside
       </p>
     </div>
 
-    <div class="divider">
-      <div class="divider-line"></div>
-      <span class="divider-heart">♡</span>
-      <div class="divider-line"></div>
+    <!-- ══════════ SCREEN 3: LETTER ══════════ -->
+    <div class="screen hidden" id="letterScreen">
+      <div class="letter-container">
+        <div class="corner-deco tl">❧</div>
+        <div class="corner-deco tr">❧</div>
+        <div class="corner-deco bl">❧</div>
+        <div class="corner-deco br">❧</div>
+
+        <div class="letter-header">
+          <p class="subtitle-text mb-2" style="color: rgba(249, 168, 212, 0.5)">
+            ❦ nine months of us ❦
+          </p>
+          <h1
+            class="display-font glow-text"
+            style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1"
+          >
+            Happy 9th Monthsary
+          </h1>
+          <p
+            class="body-font"
+            style="
+              color: rgba(249, 168, 212, 0.55);
+              font-size: 0.9rem;
+              font-style: italic;
+              margin-top: 0.5rem;
+            "
+          >
+            My love, my favorite person 🌸
+          </p>
+        </div>
+
+        <div class="divider">
+          <div class="divider-line"></div>
+          <span class="divider-heart">♡</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="letter-body">
+          <p>
+            My dearest love, it's been
+            <span class="highlight">nine beautiful months</span> since you
+            walked into my life and turned everything into something I never
+            want to lose. Nine months of laughter, of late nights, of the small
+            stolen moments that have become my favorite memories.
+          </p>
+          <p>
+            I still remember the way my heart skipped the very first time — and
+            somehow, impossibly,
+            <span class="highlight"
+              >it still does every single time I see you.</span
+            >
+            You make ordinary days feel like a dream I'm terrified to wake up
+            from.
+          </p>
+          <p>
+            Thank you for every "good morning," every hug that lasted just a
+            little longer than it needed to, every time you held my hand and
+            made me feel like the luckiest person in the world. Thank you for
+            being
+            <span class="highlight">patient, warm, and endlessly kind</span> —
+            even on the days I made it hard.
+          </p>
+          <p>
+            Nine months feels like a whole lifetime with you, and yet somehow, I
+            want a thousand more. I want
+            <span class="highlight"
+              >every season, every chapter, every ordinary Tuesday</span
+            >
+            — as long as it's with you.
+          </p>
+          <p>
+            Here's to us. To the nine months behind us, and to all the beautiful
+            ones still to come. 💜
+          </p>
+        </div>
+
+        <div class="divider">
+          <div class="divider-line"></div>
+          <span class="divider-heart">♡</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="sign-off">Forever yours 💕</div>
+      </div>
     </div>
 
-    <div class="letter-body">
-      <p>
-        My dearest love, it's been <span class="highlight">nine beautiful months</span> since you walked into my life and turned everything into something I never want to lose. Nine months of laughter, of late nights, of the small stolen moments that have become my favorite memories.
-      </p>
-      <p>
-        I still remember the way my heart skipped the very first time — and somehow, impossibly, <span class="highlight">it still does every single time I see you.</span> You make ordinary days feel like a dream I'm terrified to wake up from.
-      </p>
-      <p>
-        Thank you for every "good morning," every hug that lasted just a little longer than it needed to, every time you held my hand and made me feel like the luckiest person in the world. Thank you for being <span class="highlight">patient, warm, and endlessly kind</span> — even on the days I made it hard.
-      </p>
-      <p>
-        Nine months feels like a whole lifetime with you, and yet somehow, I want a thousand more. I want <span class="highlight">every season, every chapter, every ordinary Tuesday</span> — as long as it's with you.
-      </p>
-      <p>
-        Here's to us. To the nine months behind us, and to all the beautiful ones still to come. 💜
-      </p>
+    <!-- ══════════ MUSIC PLAYER ══════════ -->
+    <div class="music-player hidden" id="musicPlayer">
+      <div class="music-disc" id="musicDisc"></div>
+      <div class="player-info">
+        <span class="now-playing">Now Playing</span>
+        <span class="song-name" id="currentSongName">Song One</span>
+      </div>
+      <button
+        class="player-btn"
+        id="playPauseBtn"
+        onclick="togglePlay()"
+        title="Play/Pause"
+      >
+        ⏸
+      </button>
+      <button class="switch-btn" onclick="switchSong()" title="Switch song">
+        ⇄ Switch
+      </button>
     </div>
 
-    <div class="divider">
-      <div class="divider-line"></div>
-      <span class="divider-heart">♡</span>
-      <div class="divider-line"></div>
-    </div>
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
 
-    <div class="sign-off">Forever yours 💕</div>
-  </div>
-</div>
+    <!-- ══════════ SCRIPT ══════════ -->
+    <script>
+      // ── state
+      let currentSong = 1;
+      let isPlaying = false;
+      let selectedSong = 0;
 
-<!-- ══════════ MUSIC PLAYER ══════════ -->
-<div class="music-player hidden" id="musicPlayer">
-  <div class="music-disc" id="musicDisc"></div>
-  <div class="player-info">
-    <span class="now-playing">Now Playing</span>
-    <span class="song-name" id="currentSongName">Song One</span>
-  </div>
-  <button class="player-btn" id="playPauseBtn" onclick="togglePlay()" title="Play/Pause">⏸</button>
-  <button class="switch-btn" onclick="switchSong()" title="Switch song">⇄ Switch</button>
-</div>
+      const songs = {
+        1: {
+          el: document.getElementById("song1"),
+          name: "Song One",
+          icon: "🎵",
+        },
+        2: {
+          el: document.getElementById("song2"),
+          name: "Song Two",
+          icon: "🎶",
+        },
+      };
 
-<!-- TOAST NOTIFICATION -->
-<div class="toast" id="toast"></div>
+      // ── floating petals
+      const emojis = ["🌸", "💕", "✨", "💜", "🌺", "💗", "⭐", "🌷"];
+      const fc = document.getElementById("floatContainer");
 
-<!-- ══════════ SCRIPT ══════════ -->
-<script>
-  // ── state
-  let currentSong = 1;
-  let isPlaying   = false;
-  let selectedSong = 0;
+      function createPetal() {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        p.style.left = Math.random() * 100 + "vw";
+        const dur = 8 + Math.random() * 10;
+        const delay = Math.random() * 5;
+        p.style.animationDuration = dur + "s";
+        p.style.animationDelay = delay + "s";
+        p.style.fontSize = 10 + Math.random() * 14 + "px";
+        fc.appendChild(p);
+        setTimeout(() => p.remove(), (dur + delay) * 1000);
+      }
 
-  const songs = {
-    1: { el: document.getElementById('song1'), name: 'Song One',  icon: '🎵' },
-    2: { el: document.getElementById('song2'), name: 'Song Two',  icon: '🎶' }
-  };
+      setInterval(createPetal, 600);
+      for (let i = 0; i < 8; i++) createPetal();
 
-  // ── floating petals
-  const emojis = ['🌸', '💕', '✨', '💜', '🌺', '💗', '⭐', '🌷'];
-  const fc = document.getElementById('floatContainer');
+      // ── lock
+      function unlockScreen() {
+        const lock = document.getElementById("lockWrap");
+        lock.classList.add("unlocked");
+        setTimeout(() => {
+          transitionTo("lockScreen", "songScreen", 1);
+        }, 900);
+      }
 
-  function createPetal() {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    p.style.left = Math.random() * 100 + 'vw';
-    const dur = 8 + Math.random() * 10;
-    const delay = Math.random() * 5;
-    p.style.animationDuration = dur + 's';
-    p.style.animationDelay   = delay + 's';
-    p.style.fontSize = (10 + Math.random() * 14) + 'px';
-    fc.appendChild(p);
-    setTimeout(() => p.remove(), (dur + delay) * 1000);
-  }
+      // ── song selection
+      function selectSong(num) {
+        selectedSong = num;
+        document.getElementById("card1").classList.toggle("active", num === 1);
+        document.getElementById("card2").classList.toggle("active", num === 2);
+        document.getElementById("openLetterBtn").disabled = false;
+      }
 
-  setInterval(createPetal, 600);
-  for (let i = 0; i < 8; i++) createPetal();
+      // ── open letter
+      function openLetter() {
+        if (!selectedSong) return;
+        transitionTo("songScreen", "letterScreen", 2);
+        currentSong = selectedSong;
+        playCurrentSong();
+        document.getElementById("musicPlayer").classList.remove("hidden");
+      }
 
-  // ── lock
-  function unlockScreen() {
-    const lock = document.getElementById('lockWrap');
-    lock.classList.add('unlocked');
-    setTimeout(() => {
-      transitionTo('lockScreen', 'songScreen', 1);
-    }, 900);
-  }
+      // ── screen transition
+      function transitionTo(fromId, toId, dotIndex) {
+        document.getElementById(fromId).classList.add("hidden");
+        setTimeout(() => {
+          document.getElementById(toId).classList.remove("hidden");
+          updateDots(dotIndex);
+        }, 200);
+      }
 
-  // ── song selection
-  function selectSong(num) {
-    selectedSong = num;
-    document.getElementById('card1').classList.toggle('active', num === 1);
-    document.getElementById('card2').classList.toggle('active', num === 2);
-    document.getElementById('openLetterBtn').disabled = false;
-  }
+      function updateDots(active) {
+        [0, 1, 2].forEach((i) => {
+          document
+            .getElementById("dot" + i)
+            .classList.toggle("active", i === active);
+        });
+      }
 
-  // ── open letter
-  function openLetter() {
-    if (!selectedSong) return;
-    transitionTo('songScreen', 'letterScreen', 2);
-    currentSong = selectedSong;
-    playCurrentSong();
-    document.getElementById('musicPlayer').classList.remove('hidden');
-  }
+      // ── music controls
+      function playCurrentSong() {
+        const audio = songs[currentSong].el;
+        audio.currentTime = 0;
+        audio
+          .play()
+          .then(() => {
+            isPlaying = true;
+            updatePlayerUI();
+          })
+          .catch(() => {
+            // Autoplay blocked — show hint
+            showToast("Tap ▶ to start the music 🎵");
+            isPlaying = false;
+            updatePlayerUI();
+          });
+      }
 
-  // ── screen transition
-  function transitionTo(fromId, toId, dotIndex) {
-    document.getElementById(fromId).classList.add('hidden');
-    setTimeout(() => {
-      document.getElementById(toId).classList.remove('hidden');
-      updateDots(dotIndex);
-    }, 200);
-  }
+      function togglePlay() {
+        const audio = songs[currentSong].el;
+        if (isPlaying) {
+          audio.pause();
+          isPlaying = false;
+        } else {
+          audio.play().then(() => {
+            isPlaying = true;
+            updatePlayerUI();
+          });
+        }
+        updatePlayerUI();
+      }
 
-  function updateDots(active) {
-    [0,1,2].forEach(i => {
-      document.getElementById('dot' + i).classList.toggle('active', i === active);
-    });
-  }
+      function switchSong() {
+        const prev = songs[currentSong].el;
+        prev.pause();
+        prev.currentTime = 0;
 
-  // ── music controls
-  function playCurrentSong() {
-    const audio = songs[currentSong].el;
-    audio.currentTime = 0;
-    audio.play().then(() => {
-      isPlaying = true;
-      updatePlayerUI();
-    }).catch(() => {
-      // Autoplay blocked — show hint
-      showToast('Tap ▶ to start the music 🎵');
-      isPlaying = false;
-      updatePlayerUI();
-    });
-  }
+        currentSong = currentSong === 1 ? 2 : 1;
+        const next = songs[currentSong].el;
+        next
+          .play()
+          .then(() => {
+            isPlaying = true;
+            updatePlayerUI();
+            showToast(
+              "Now playing " +
+                songs[currentSong].name +
+                " " +
+                songs[currentSong].icon,
+            );
+          })
+          .catch(() => {
+            isPlaying = false;
+            updatePlayerUI();
+          });
+      }
 
-  function togglePlay() {
-    const audio = songs[currentSong].el;
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-    } else {
-      audio.play().then(() => { isPlaying = true; updatePlayerUI(); });
-    }
-    updatePlayerUI();
-  }
+      function updatePlayerUI() {
+        const disc = document.getElementById("musicDisc");
+        const btn = document.getElementById("playPauseBtn");
+        const name = document.getElementById("currentSongName");
 
-  function switchSong() {
-    const prev = songs[currentSong].el;
-    prev.pause();
-    prev.currentTime = 0;
+        name.textContent = songs[currentSong].name;
+        btn.textContent = isPlaying ? "⏸" : "▶";
+        disc.classList.toggle("spinning", isPlaying);
+      }
 
-    currentSong = currentSong === 1 ? 2 : 1;
-    const next = songs[currentSong].el;
-    next.play().then(() => {
-      isPlaying = true;
-      updatePlayerUI();
-      showToast('Now playing ' + songs[currentSong].name + ' ' + songs[currentSong].icon);
-    }).catch(() => {
-      isPlaying = false;
-      updatePlayerUI();
-    });
-  }
+      // auto-loop between songs (when one ends, play the other)
+      songs[1].el.addEventListener("ended", () => {
+        currentSong = 2;
+        songs[2].el.play().then(() => {
+          isPlaying = true;
+          updatePlayerUI();
+        });
+      });
+      songs[2].el.addEventListener("ended", () => {
+        currentSong = 1;
+        songs[1].el.play().then(() => {
+          isPlaying = true;
+          updatePlayerUI();
+        });
+      });
 
-  function updatePlayerUI() {
-    const disc = document.getElementById('musicDisc');
-    const btn  = document.getElementById('playPauseBtn');
-    const name = document.getElementById('currentSongName');
-
-    name.textContent = songs[currentSong].name;
-    btn.textContent  = isPlaying ? '⏸' : '▶';
-    disc.classList.toggle('spinning', isPlaying);
-  }
-
-  // auto-loop between songs (when one ends, play the other)
-  songs[1].el.addEventListener('ended', () => {
-    currentSong = 2;
-    songs[2].el.play().then(() => { isPlaying = true; updatePlayerUI(); });
-  });
-  songs[2].el.addEventListener('ended', () => {
-    currentSong = 1;
-    songs[1].el.play().then(() => { isPlaying = true; updatePlayerUI(); });
-  });
-
-  // ── toast
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-  }
-</script>
-</body>
+      // ── toast
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 3000);
+      }
+    </script>
+  </body>
 </html>
